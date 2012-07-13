@@ -10,6 +10,6 @@
 [color]
 	ui = auto
 [gravatar]
-	hide = true
+	hide = false
 [hooks]
 	global = /Users/rchasman/git-hooks/contrib/
