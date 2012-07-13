@@ -1,5 +1,7 @@
 # Paths
 export PATH="$PATH:/sbin:/usr/sbin:$HOME/bin:$HOME/git"
+export PATH="$PATH:$HOME/git/git-hooks"
+export PATH="$PATH:$HOME/git/git-achievements"
 export PATH="$PATH:/usr/local/Cellar/ruby/1.9.3-p194/bin"
 
 # Dynamic resizing
