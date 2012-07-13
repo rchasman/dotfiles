@@ -3,6 +3,7 @@ export PATH="/bin"
 export PATH="$PATH:/usr/local/bin:/usr/bin:/usr/X11/bin:/usr/lib"
 export PATH="$PATH:/sbin:/usr/sbin:$HOME/bin:usr/bin"
 export PATH="$PATH:$HOME/bin:$HOME/git"
+export PATH="$PATH:/usr/local/Cellar/ruby/1.9.3-p194/bin"
 
 # zsh Path
 ZSH=$HOME/.oh-my-zsh

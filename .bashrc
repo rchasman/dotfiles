@@ -1,5 +1,6 @@
 # Paths
 export PATH="$PATH:/sbin:/usr/sbin:$HOME/bin:$HOME/git"
+export PATH="$PATH:/usr/local/Cellar/ruby/1.9.3-p194/bin"
 
 # Dynamic resizing
 shopt -s checkwinsize
@@ -16,7 +17,7 @@ PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 #`--- ---'
 
 # System
-alias ep='vim ~/.zshrc'
+alias ep='vim ~/.bashrc'
 alias configulon='cd ~/iPlant/configulon/devs/'
 alias please='eval "sudo $(fc -ln -1)"'
 alias vp='vim ~/.vimrc'
