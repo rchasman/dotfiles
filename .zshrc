@@ -2,13 +2,12 @@
 export PATH="/bin"
 export PATH="$PATH:/usr/local/bin:/usr/bin:/usr/X11/bin:/usr/lib"
 export PATH="$PATH:/sbin:/usr/sbin:$HOME/bin:usr/bin"
-export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:$HOME/git"
-export PATH="$PATH:$HOME/git/git-achievements"
-export PATH="$PATH:$HOME/git/git-hooks"
+export PATH="$PATH:$HOME/bin:$HOME/git"
+
+# zsh Path
 ZSH=$HOME/.oh-my-zsh
 
-# Theme
+# zsh Themes
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="funky"
 #ZSH_THEME="gallois"

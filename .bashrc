@@ -1,10 +1,5 @@
-#.bashrc
-# Add bin to path
-export PATH="$PATH:/sbin:/usr/sbin:$HOME/bin"
-export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:$HOME/git"
-export PATH="$PATH":~/git/git-achievements
-export PATH="$PATH":~/git/git-hooks
+# Paths
+export PATH="$PATH:/sbin:/usr/sbin:$HOME/bin:$HOME/git"
 
 # Dynamic resizing
 shopt -s checkwinsize
@@ -21,7 +16,8 @@ PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 #`--- ---'
 
 # System
-alias ep='vim ~/.bashrc'
+alias ep='vim ~/.zshrc'
+alias configulon='cd ~/iPlant/configulon/devs/'
 alias please='eval "sudo $(fc -ln -1)"'
 alias vp='vim ~/.vimrc'
 alias lcat='lolcat'
@@ -33,16 +29,21 @@ alias lsl='ls -l'
 alias lsa='ls -A'
 alias lsg='ls | grep'
 alias hist='history'
+alias ohmyzsh="mate ~/.oh-my-zsh"
+alias light="./light"
 
 # iPlant Services
 alias clavin='java -jar ~/iPlant/Clavin/target/clavin-1.0.0-SNAPSHOT-standalone.jar'
+alias chin='cd ~/iPlant/chinstrap; lein run;'
 alias facepalm='java -jar ~/iPlant/facepalm/target/facepalm-0.0.1-SNAPSHOT-standalone.jar -d Munch -U rchasman -f ~/iPlant/de-database-schema/database.tar.gz'
 alias plant='cd ~/iPlant/'
+alias osm-2='ssh osm-2'
+alias services-2='ssh services-2'
 
 # Git
 alias git="git-achievements"
 alias gh="githug"
-alias gl="git-achievements log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gc="git-achievements commit"
 alias gs="git-achievements status"
 alias gai='git-achievements add -i'
@@ -56,6 +57,7 @@ alias gst='git-achievements stash'
 alias gcl='git-achievements clone'
 alias gcp='git-achievements cherry-pick'
 alias gchk='git-achievements checkout'
+alias gpl='git-achievements pull'
 
 # This function allows you to easily see what branch you are on inside of a git repo.
 function parse_git_branch () {
