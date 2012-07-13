@@ -1,0 +1,15 @@
+[user]
+	name = Roey Chasman
+	email = rchasman@email.arizona.edu
+[core]
+	autocrlf = input
+	safecrlf = true
+	editor = /usr/bin/vim
+[achievement]
+	upload = true
+[color]
+	ui = auto
+[gravatar]
+	hide = true
+[hooks]
+	global = /Users/rchasman/git-hooks/contrib/
