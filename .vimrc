@@ -117,9 +117,9 @@ set showmatch                     " jump to matching brackets
 set autoindent                    " give me some indent
 set smartindent                   " make good indentation choices
 set expandtab                     " space indents instead of tabs
-set tabstop=2                     " two space indent
-set softtabstop=2                 " two space indent
-set shiftwidth=2                  " two space indents when using << or >>
+set tabstop=4                     " four space indent
+set softtabstop=4                 " four space indent
+set shiftwidth=4                  " four space indents when using << or >>
 set shiftround                    " round spaces to a multiple of shiftwidth
 
 set showmode                      " show working mode

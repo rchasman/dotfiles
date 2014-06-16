@@ -1,13 +1,32 @@
+#------------------------------------------------------------------------------
+#     ___           ___           ___             ___     __     ___
+#    /  /\         /  /\         /  /\           /__/|   / /\   /  /\
+#   /  /::\       /  /::\       /  /:/_          | |:|  / /:/  /  /:/_
+#  /  /:/\:\     /  /:/\:\     /  /:/ /\         | |:|  |_|/  /  /:/ /\
+# /  /:/~/:/    /  /:/  \:\   /  /:/ /:/_        | |:|       /  /:/ /::\
+#/__/:/ /:/___ /__/:/ \__\:\ /__/:/ /:/ /\  _____|_|:|      /__/:/ /:/\:\
+#\  \:\/:::::/ \  \:\ /  /:/ \  \:\/:/ /:/ /  /::::::\      \  \:\/:/~/:/
+# \  \::/~~~~   \  \:\  /:/   \  \::/ /:/  ~~~~~~~  \:\      \  \::/ /:/
+#  \  \:\        \  \:\/:/     \  \:\/:/          \  \:\      \__\/ /:/
+#   \  \:\        \  \::/       \  \::/            \  \:\       /__/:/
+#    \__\/         \__\/         \__\/              \__\/       \__\/
+#
+#                     Zany Zsh Run Configuration
+#------------------------------------------------------------------------------
+
 # Paths
 export PATH="/bin"
+export PATH="$PATH:$EC2_HOME/bin"
+export PATH="$PATH:$CLOJURESCRIPT_HOME/bin"
 export PATH="$PATH:/usr/local/bin:/usr/bin:/usr/X11/bin:/usr/lib"
 export PATH="$PATH:/sbin:/usr/sbin:$HOME/bin:usr/bin"
 export PATH="$PATH:$HOME/bin:$HOME/git"
 export PATH="$PATH:$HOME/git/git-achievements"
 export PATH="$PATH:$HOME/git/git-hooks"
 export PATH="$PATH:/usr/local"
-export PATH="$PATH:/usr/local/Cellar/ruby/2.1.1/bin"
-export PATH="$PATH:/usr/local/Cellar/ruby/2.0.0-p247/bin"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && \
+. "$HOME/.rvm/scripts/rvm"
 
 ZSH=$HOME/.oh-my-zsh
 
@@ -61,17 +80,6 @@ alias clock="~/.clock.sh"
 alias lectura='ssh rchasman@lectura.cs.arizona.edu'
 alias dc='popd'
 
-# iPlant Services
-alias clavin='java -jar ~/iPlant/Clavin/target/clavin-1.0.0-SNAPSHOT-standalone.jar'
-alias chin='cd ~/iPlant/chinstrap; lein run;'
-alias facepalm='java -jar ~/iPlant/facepalm/target/facepalm-0.0.1-SNAPSHOT-standalone.jar -d Munch -U rchasman -f ~/iPlant/de-database-schema/database.tar.gz'
-alias plant='cd ~/iPlant/'
-alias osm-2='ssh osm-2'
-alias services-2='ssh services-2'
-
-# Dreamhost
-alias mirfak='ssh rchasman@dogeracing.com'
-
 # Rasberry Pi
 alias pi='ssh root@192.168.2.2'
 
@@ -105,7 +113,7 @@ function precmd () {
 }
 
 # Set to this to use case-sensitive completion
-CASE_SENSITIVE="false"
+CASE_SENSITIVE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
@@ -114,3 +122,5 @@ COMPLETION_WAITING_DOTS="true"
 # Plugins can be found in ~/.oh-my-zsh/plugins/*
 plugins=(git lein lol nyan)
 source $ZSH/oh-my-zsh.sh
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
