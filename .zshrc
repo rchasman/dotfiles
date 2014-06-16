@@ -16,14 +16,13 @@
 
 # Paths
 export PATH="/bin"
-export PATH="$PATH:$EC2_HOME/bin"
-export PATH="$PATH:$CLOJURESCRIPT_HOME/bin"
 export PATH="$PATH:/usr/local/bin:/usr/bin:/usr/X11/bin:/usr/lib"
 export PATH="$PATH:/sbin:/usr/sbin:$HOME/bin:usr/bin"
 export PATH="$PATH:$HOME/bin:$HOME/git"
 export PATH="$PATH:$HOME/git/git-achievements"
 export PATH="$PATH:$HOME/git/git-hooks"
 export PATH="$PATH:/usr/local"
+export PATH="$PATH:$HOME/.rvm/bin"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && \
 . "$HOME/.rvm/scripts/rvm"
@@ -48,20 +47,11 @@ ZSH_THEME="gallois"
 #`--- ---'
 
 # System
-alias sing='~/Personal/./sing.sh'
-alias 453='cd ~/Personal/Fall-2013/453/'
-alias bison='/usr/local/Cellar/bison/3.0/bin/./bison'
-alias vim='/usr/local/Cellar/vim/7.4/bin/vim'
 alias hogs='ps aux | head -1 && ps aux | sort'
 alias t='python ~/git/t/t.py --task-dir ~/tasks --list tasks'
 alias ccat='pygmentize'
-alias djenv='source ~/Personal/django/django-env/bin/activate'
-alias pinenv='source ~/Personal/django/pinax-env/bin/activate'
-alias dj='cd ~/Personal/django; djenv'
-alias djpinax='cd ~/Personal/django; pinenv'
 alias djman='python manage.py'
 alias ep='vim ~/.zshrc'
-alias configulon='cd ~/iPlant/configulon/devs/'
 alias please='eval "sudo $(fc -ln -1)"'
 alias vp='vim ~/.vimrc'
 alias lcat='lolcat'
@@ -73,19 +63,9 @@ alias lsl='ls -l'
 alias lsa='ls -A'
 alias lsg='ls | grep'
 alias hist='history'
-alias ohmyzsh="mate ~/.oh-my-zsh"
-alias light="./light"
 alias fact="elinks -dump randomfunfacts.com | sed -n '/^| /p' | tr -d \|"
-alias clock="~/.clock.sh"
 alias lectura='ssh rchasman@lectura.cs.arizona.edu'
 alias dc='popd'
-
-# Rasberry Pi
-alias pi='ssh root@192.168.2.2'
-
-# Mining Rig
-alias pumpkin='ssh rchasman@192.168.2.60'
-alias paul='ssh root@192.168.2.68 -p 222'
 
 # Git
 alias git="git-achievements"
@@ -107,11 +87,6 @@ alias gchk='git-achievements checkout'
 alias gpl='git-achievements pull'
 alias nano='vim'
 
-. `brew --prefix`/etc/profile.d/z.sh
-function precmd () {
-    _z --add "$(pwd -P)"
-}
-
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
 
@@ -122,5 +97,3 @@ COMPLETION_WAITING_DOTS="true"
 # Plugins can be found in ~/.oh-my-zsh/plugins/*
 plugins=(git lein lol nyan)
 source $ZSH/oh-my-zsh.sh
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
