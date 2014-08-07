@@ -43,7 +43,7 @@ colorscheme jellybeans
 
 "------------------------------------------------------------------------------
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
@@ -58,9 +58,7 @@ Bundle 'justinmk/vim-syntax-extra'
 Bundle 'tpope/vim-surround'
 
 "Powerline
-Bundle 'Lokaltog/vim-powerline'
-let g:Powerline_symbols = 'fancy'
-set fillchars+=stl:\ ,stlnc:\
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 "Gundo
 Bundle 'sjl/gundo.vim'

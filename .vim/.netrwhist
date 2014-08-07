@@ -1,6 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/rchasman/.gem'
 let g:netrw_dirhist_2='/Users/rchasman/.gem/ruby'
 let g:netrw_dirhist_3='/Users/rchasman/.gem/ruby/2.0.0'
 let g:netrw_dirhist_4='/Users/rchasman/.gem/ruby/2.0.0/cache'
+let g:netrw_dirhist_5='/Users/rchasman/.vim'
+let g:netrw_dirhist_6='/Users/rchasman/.vim/bundle/Vundle.vim'
+let g:netrw_dirhist_7='/Users/rchasman/.vim/bundle/Vundle.vim/autoload'
+let g:netrw_dirhist_8='/Users/rchasman/.vim'
