@@ -45,13 +45,27 @@ colorscheme jellybeans
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/Vundle.vim'
 
 "a.vim - switches between header file and src file
-Bundle 'vim-scripts/a.vim'
+"Bundle 'vim-scripts/a.vim'
+
+"Better Javascript
+Bundle "pangloss/vim-javascript"
+let g:javascript_conceal_function   = "ƒ"
+let g:javascript_conceal_null       = "ø"
+let g:javascript_conceal_this       = "@"
+let g:javascript_conceal_return     = "⇚"
+let g:javascript_conceal_undefined  = "¿"
+let g:javascript_conceal_NaN        = "ℕ"
+let g:javascript_conceal_prototype  = "¶"
+let g:javascript_enable_domhtmlcss  = 1
+
+"Better JSX
+let g:jsx_ext_required = 0
 
 "Better C colors
-Bundle 'justinmk/vim-syntax-extra'
+"Bundle 'justinmk/vim-syntax-extra'
 
 "Surround
 "Example - cs`' to change `Hello` to 'Hello'
@@ -69,6 +83,9 @@ Bundle 'tpope/vim-fugitive'
 
 "Syntastic
 Bundle 'scrooloose/syntastic'
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+let g:syntastic_quiet_messages = {'level': 'warnings'}
+let g:loaded_syntastic_ruby_rubocop_checker = 1
 
 "Rainbow Parens
 Bundle 'kien/rainbow_parentheses.vim'
@@ -81,7 +98,7 @@ augroup RainbowParens
 augroup END
 
 "Vim/Tmux Navigator
-Bundle 'christoomey/vim-tmux-navigator'
+"Bundle 'christoomey/vim-tmux-navigator'
 
 "Git Gutter
 Bundle 'airblade/vim-gitgutter'
@@ -93,7 +110,12 @@ Bundle 'airblade/vim-gitgutter'
 "Bundle 'rizzatti/dash.vim'
 
 "NERDTree
-"Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdtree'
+map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeWinPos = "right"
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 "--------------------------------Settings--------------------------------------
 
@@ -115,9 +137,9 @@ set showmatch                     " jump to matching brackets
 set autoindent                    " give me some indent
 set smartindent                   " make good indentation choices
 set expandtab                     " space indents instead of tabs
-set tabstop=4                     " four space indent
-set softtabstop=4                 " four space indent
-set shiftwidth=4                  " four space indents when using << or >>
+set tabstop=2                     " four space indent
+set softtabstop=2                 " four space indent
+set shiftwidth=2                  " four space indents when using << or >>
 set shiftround                    " round spaces to a multiple of shiftwidth
 
 set showmode                      " show working mode
@@ -146,6 +168,7 @@ ab cl console.log("
 augroup Filetypes
     autocmd!
     au Filetype pl set syntax=prolog
+    au BufNewFile,BufRead *.jsx.erb set filetype=javascript
 augroup END
 
 "------------------------------Fomatting---------------------------------------
