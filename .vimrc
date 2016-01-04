@@ -37,21 +37,24 @@ colorscheme jellybeans
 "set background=dark
 "colorscheme desert
 
-"---------------------------Vundle Bundles-------------------------------------
+"---------------------------Vundle Plugins-------------------------------------
 
-"Type :BundleInstall after putting in new Bundles :)
+"Type :PluginInstall after putting in new Plugins :)
 
 "------------------------------------------------------------------------------
 
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
-Bundle 'gmarik/Vundle.vim'
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
 
 "a.vim - switches between header file and src file
-"Bundle 'vim-scripts/a.vim'
+"Plugin 'vim-scripts/a.vim'
 
 "Better Javascript
-Bundle "pangloss/vim-javascript"
+Plugin 'pangloss/vim-javascript'
 let g:javascript_conceal_function   = "ƒ"
 let g:javascript_conceal_null       = "ø"
 let g:javascript_conceal_this       = "@"
@@ -65,30 +68,30 @@ let g:javascript_enable_domhtmlcss  = 1
 let g:jsx_ext_required = 0
 
 "Better C colors
-"Bundle 'justinmk/vim-syntax-extra'
+"Plugin 'justinmk/vim-syntax-extra'
 
 "Surround
 "Example - cs`' to change `Hello` to 'Hello'
-Bundle 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 
 "Powerline
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 "Gundo
-Bundle 'sjl/gundo.vim'
+Plugin 'sjl/gundo.vim'
 nnoremap <F5> :GundoToggle<cr>
 
 "Vim-Fugitive
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 
 "Syntastic
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 let g:syntastic_quiet_messages = {'level': 'warnings'}
 let g:loaded_syntastic_ruby_rubocop_checker = 1
 
 "Rainbow Parens
-Bundle 'kien/rainbow_parentheses.vim'
+Plugin 'kien/rainbow_parentheses.vim'
 augroup RainbowParens
     autocmd!
     au VimEnter * RainbowParenthesesToggle
@@ -98,24 +101,27 @@ augroup RainbowParens
 augroup END
 
 "Vim/Tmux Navigator
-"Bundle 'christoomey/vim-tmux-navigator'
+"Plugin 'christoomey/vim-tmux-navigator'
 
 "Git Gutter
-Bundle 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 
 "Funcoo library
-"Bundle 'rizzatti/funcoo.vim'
+"Plugin 'rizzatti/funcoo.vim'
 
 "Dash
-"Bundle 'rizzatti/dash.vim'
+"Plugin 'rizzatti/dash.vim'
 
 "NERDTree
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+call vundle#end()
+filetype plugin indent on
 
 "--------------------------------Settings--------------------------------------
 
