@@ -28,7 +28,7 @@ endif
 "--------------------------------Colors----------------------------------------
 
 syntax on
-"set t_Co=256
+set t_Co=256
 "color molokai
 "colorscheme xoria
 colorscheme jellybeans
@@ -37,9 +37,9 @@ colorscheme jellybeans
 "set background=dark
 "colorscheme desert
 
-"---------------------------Vundle Plugins-------------------------------------
+"---------------------------Vundle Bundles-------------------------------------
 
-"Type :PluginInstall after putting in new Plugins :)
+"Type :BundleInstall after putting in new Bundles :)
 
 "------------------------------------------------------------------------------
 
@@ -48,72 +48,86 @@ filetype off                  " required
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+Bundle 'VundleVim/Vundle.vim'
 
 "a.vim - switches between header file and src file
 "Plugin 'vim-scripts/a.vim'
 
 "Better Javascript
 Plugin 'pangloss/vim-javascript'
-let g:javascript_conceal_function   = "ƒ"
-let g:javascript_conceal_null       = "ø"
-let g:javascript_conceal_this       = "@"
-let g:javascript_conceal_return     = "⇚"
-let g:javascript_conceal_undefined  = "¿"
-let g:javascript_conceal_NaN        = "ℕ"
-let g:javascript_conceal_prototype  = "¶"
-let g:javascript_enable_domhtmlcss  = 1
+let g:javascript_conceal_function             = "ƒ"
+let g:javascript_conceal_null                 = "ø"
+let g:javascript_conceal_this                 = "@"
+let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_undefined            = "¿"
+let g:javascript_conceal_NaN                  = "ℕ"
+let g:javascript_conceal_prototype            = "¶"
+let g:javascript_conceal_static               = "•"
+let g:javascript_conceal_super                = "Ω"
+let g:javascript_conceal_arrow_function       = "⇒"
+"set conceallevel=1
+"^ These actually suck activated, but they do look cool as options in .vimrc
 
 "Better JSX
 let g:jsx_ext_required = 0
 
+let g:javascript_enable_domhtmlcss  = 1
+
+"DeepTabNine
+"Bundle 'zxqfl/tabnine-vim'
+
 "Better C colors
-"Plugin 'justinmk/vim-syntax-extra'
+"Bundle 'justinmk/vim-syntax-extra'
 
 "Surround
 "Example - cs`' to change `Hello` to 'Hello'
-Plugin 'tpope/vim-surround'
+Bundle 'tpope/vim-surround'
 
-"Powerline
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 "Gundo
-Plugin 'sjl/gundo.vim'
+Bundle 'sjl/gundo.vim'
 nnoremap <F5> :GundoToggle<cr>
 
+"Vim-Repeat
+Bundle 'tpope/vim-repeat'
 "Vim-Fugitive
-Plugin 'tpope/vim-fugitive'
+Bundle 'tpope/vim-fugitive'
+"Vim-SpeedDating
+Bundle 'tpope/vim-speeddating'
 
 "Syntastic
-Plugin 'scrooloose/syntastic'
+Bundle 'scrooloose/syntastic'
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 let g:syntastic_quiet_messages = {'level': 'warnings'}
-let g:loaded_syntastic_ruby_rubocop_checker = 1
+"let g:loaded_syntastic_ruby_rubocop_checker = 1
+" react and es6 checkers
+let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
 
-"Rainbow Parens
-Plugin 'kien/rainbow_parentheses.vim'
-augroup RainbowParens
-    autocmd!
-    au VimEnter * RainbowParenthesesToggle
-    au VimEnter * RainbowParenthesesLoadRound
-    au VimEnter * RainbowParenthesesLoadSquare
-    au VimEnter * RainbowParenthesesLoadBraces
-augroup END
+
+Bundle 'luochen1990/rainbow'
+let g:rainbow_active = 1
+
+Bundle 'jparise/vim-graphql'
 
 "Vim/Tmux Navigator
-"Plugin 'christoomey/vim-tmux-navigator'
+"Bundle 'christoomey/vim-tmux-navigator'
 
 "Git Gutter
-Plugin 'airblade/vim-gitgutter'
+Bundle 'airblade/vim-gitgutter'
 
 "Funcoo library
-"Plugin 'rizzatti/funcoo.vim'
+"Bundle 'rizzatti/funcoo.vim'
 
 "Dash
-"Plugin 'rizzatti/dash.vim'
+"Bundle 'rizzatti/dash.vim'
+
+"Scala
+"Bundle 'derekwyatt/vim-scala'
 
 "NERDTree
-Plugin 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdtree'
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
 autocmd StdinReadPre * let s:std_in=1
@@ -122,6 +136,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 call vundle#end()
 filetype plugin indent on
+
+set rtp+=/usr/local/opt/fzf
 
 "--------------------------------Settings--------------------------------------
 
@@ -167,7 +183,7 @@ set omnifunc=syntaxcomplete#Complete "Omni Complete ON
 
 ab sop System.out.println(
 ab printf printf("");
-ab cl console.log("
+ab cl console.log(`
 
 "------------------------------Filetypes---------------------------------------
 
