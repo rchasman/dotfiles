@@ -1,28 +1,39 @@
 #------------------------------------------------------------------------------
-#     ___           ___           ___             ___     __     ___
-#    /  /\         /  /\         /  /\           /__/|   / /\   /  /\
-#   /  /::\       /  /::\       /  /:/_          | |:|  / /:/  /  /:/_
-#  /  /:/\:\     /  /:/\:\     /  /:/ /\         | |:|  |_|/  /  /:/ /\
-# /  /:/~/:/    /  /:/  \:\   /  /:/ /:/_        | |:|       /  /:/ /::\
-#/__/:/ /:/___ /__/:/ \__\:\ /__/:/ /:/ /\  _____|_|:|      /__/:/ /:/\:\
-#\  \:\/:::::/ \  \:\ /  /:/ \  \:\/:/ /:/ /  /::::::\      \  \:\/:/~/:/
-# \  \::/~~~~   \  \:\  /:/   \  \::/ /:/  ~~~~~~~  \:\      \  \::/ /:/
-#  \  \:\        \  \:\/:/     \  \:\/:/          \  \:\      \__\/ /:/
-#   \  \:\        \  \::/       \  \::/            \  \:\       /__/:/
-#    \__\/         \__\/         \__\/              \__\/       \__\/
+#      ___           ___           ___             ___     __     ___
+#     /  /\         /  /\         /  /\           /__/|   / /\   /  /\
+#    /  /::\       /  /::\       /  /:/_          | |:|  / /:/  /  /:/_
+#   /  /:/\:\     /  /:/\:\     /  /:/ /\         | |:|  |_|/  /  /:/ /\
+#  /  /:/~/:/    /  /:/  \:\   /  /:/ /:/_        | |:|       /  /:/ /::\
+# /__/:/ /:/___ /__/:/ \__\:\ /__/:/ /:/ /\  _____|_|:|      /__/:/ /:/\:\
+# \  \:\/:::::/ \  \:\ /  /:/ \  \:\/:/ /:/ /  /::::::\      \  \:\/:/~/:/
+#  \  \::/~~~~   \  \:\  /:/   \  \::/ /:/  ~~~~~~~  \:\      \  \::/ /:/
+#   \  \:\        \  \:\/:/     \  \:\/:/          \  \:\      \__\/ /:/
+#    \  \:\        \  \::/       \  \::/            \  \:\       /__/:/
+#     \__\/         \__\/         \__\/              \__\/       \__\/
 #
-#                     Zany Zsh Run Configuration
+#                      Zany Zsh Run Configuration
 #------------------------------------------------------------------------------
 
+export SCALA_HOME="/usr/local/share/scala"
+export PGDATA="/usr/local/var/postgres"
+
 # Paths
-export PATH="/bin"
+export PATH="$PATH/bin"
+export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:/usr/local/lib/node_modules"
+export PATH="$PATH:./node_modules/.bin"
 export PATH="$PATH:/usr/local/bin:/usr/bin:/usr/X11/bin:/usr/lib"
 export PATH="$PATH:/sbin:/usr/sbin:$HOME/bin:usr/bin"
 export PATH="$PATH:$HOME/bin:$HOME/git"
-export PATH="$PATH:$HOME/git/git-achievements"
+export PATH="$PATH:$HOME/git/git"
 export PATH="$PATH:$HOME/git/git-hooks"
 export PATH="$PATH:/usr/local"
 export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:$HOME/.rvm/bin""TH:$SCALA_HOME/bin"
+export PATH="$PATH:$HOME/Library/Python/2.7/bin"
+export PATH="$PATH:$HOME/Library/Python/3.7/bin"
+export PATH="$PATH:/usr/local/opt/elasticsearch@5.6/bin:$PATH"
+export PATH="$PATH:$HOME/go/bin"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && \
 . "$HOME/.rvm/scripts/rvm"
@@ -46,7 +57,19 @@ ZSH_THEME="gallois"
 #|::.|:. |
 #`--- ---'
 
+# 2018
+alias watch='watch '
+alias tn='task ls limit:1 | head -n 4 | tail -n 1 | figlet -f slant | cowsay -n -f $(ls /usr/local/share/cows | sed -n "$((RANDOM%$(ls | wc -l)+1))p") | lolcat'
+
+# Installed
+alias ping='prettyping --nolegend'
+alias help='/usr/local/Cellar/tldr/1.3.0_2/bin/tldr'
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+# add support for ctrl+o to open selected file in VS Code
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vim {})+abort'"
+
 # System
+alias lc='colorls'
 alias hogs='ps aux | head -1 && ps aux | sort'
 alias t='python ~/git/t/t.py --task-dir ~/tasks --list tasks'
 alias ccat='pygmentize'
@@ -57,6 +80,7 @@ alias vp='vim ~/.vimrc'
 alias lcat='lolcat'
 alias cdd='cd ../'
 alias cddd='cd ../../'
+alias clear='[ $[$RANDOM % 10] = 0 ] && timeout 1 cbeams -o; clear || clear'
 alias cl='clear'
 alias cls='clear; ls'
 alias lsl='ls -l'
@@ -64,27 +88,27 @@ alias lsa='ls -A'
 alias lsg='ls | grep'
 alias hist='history'
 alias fact="elinks -dump randomfunfacts.com | sed -n '/^| /p' | tr -d \|"
-alias lectura='ssh rchasman@lectura.cs.arizona.edu'
-alias dc='popd'
+alias parrot='curl parrot.live'
+alias matrix='cmatrix'
+alias beams='cbeams'
 
 # Git
-alias git="git-achievements"
 alias githug="githug"
-alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gc="git-achievements commit"
-alias gs="git-achievements status"
-alias gai='git-achievements add -i'
-alias ga='git-achievements add'
-alias gbr='git-achievements branch'
-alias gbl='git-achievements blame'
-alias grm='git-achievements rm'
-alias grmc='git-achievements rm --cached'
-alias gls='git-achievements ls-files'
-alias gst='git-achievements stash'
-alias gcl='git-achievements clone'
-alias gcp='git-achievements cherry-pick'
-alias gchk='git-achievements checkout'
-alias gpl='git-achievements pull'
+alias glog="git log --oneline --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gc="git commit"
+alias gs="git status"
+alias gai='git add -i'
+alias ga='git add'
+alias gbr='git branch'
+alias gbl='git blame'
+alias grm='git rm'
+alias grmc='git rm --cached'
+alias gls='git ls-files'
+alias gst='git stash'
+alias gcl='git clone'
+alias gcp='git cherry-pick'
+alias gchk='git checkout'
+alias gpl='git pull'
 alias nano='vim'
 
 # Set to this to use case-sensitive completion
@@ -97,3 +121,14 @@ COMPLETION_WAITING_DOTS="true"
 # Plugins can be found in ~/.oh-my-zsh/plugins/*
 plugins=(git lein lol nyan)
 source $ZSH/oh-my-zsh.sh
+
+export NVM_DIR="/Users/rchasman/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
