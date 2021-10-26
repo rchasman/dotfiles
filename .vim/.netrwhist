@@ -1,10 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/Users/rchasman/git/mycase_app/app/assets/javascript/components'
-let g:netrw_dirhist_2='/Users/rchasman/git/mycase_app/app/views/custom_fields'
-let g:netrw_dirhist_3='/Users/rchasman/git/mycase_app/test/jest/components/custom_fields'
-let g:netrw_dirhist_4='/Users/rchasman/git/mycase_app/test/fixtures'
-let g:netrw_dirhist_5='/Users/rchasman/.m2/repository/ring'
-let g:netrw_dirhist_6='/Users/rchasman/git/pronounce/bin/src'
-let g:netrw_dirhist_7='/Users/rchasman/Library/Application Support/Google/Chrome/Default/Extensions'
-let g:netrw_dirhist_8='/Users/rchasman/git/mycase_app/test/jest/components/custom_fields'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/Users/rchasman/git/democracy/contracts'
+let g:netrw_dirhist_2='/Users/rchasman/cammy/cammy-web-components/app/src/js/components'

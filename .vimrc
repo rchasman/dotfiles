@@ -51,7 +51,22 @@ call vundle#begin()
 Bundle 'VundleVim/Vundle.vim'
 
 "a.vim - switches between header file and src file
-"Plugin 'vim-scripts/a.vim'
+Plugin 'vim-scripts/a.vim'
+
+"testswitcher - switches between src and unit testing file
+"Plugin 'rchasman/t.vim' - Deleted because did not work
+"Plugin 'file:///Users/rchasman/git/t.vim' - Local copy
+
+"Typescript
+Plugin 'leafgarland/typescript-vim'
+let g:typescript_indent_disable = 1
+
+"Better jsx
+Plugin 'maxmellon/vim-jsx-pretty'
+let g:vim_jsx_pretty_colorful_config = 1
+
+"Better gql
+Plugin 'jparise/vim-graphql'
 
 "Better Javascript
 Plugin 'pangloss/vim-javascript'
@@ -108,8 +123,6 @@ let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
 
 Bundle 'luochen1990/rainbow'
 let g:rainbow_active = 1
-
-Bundle 'jparise/vim-graphql'
 
 "Vim/Tmux Navigator
 "Bundle 'christoomey/vim-tmux-navigator'
